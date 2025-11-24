@@ -1,16 +1,11 @@
 *
 
-# Directories
-!c/
-!cpp/
-!java/
-!python/
+!*/
 
-# File types
-!*.md
 !*.py
-!*.cpp
-!*.java
-!*.hpp
 !*.h
 !*.c
+!*.java
+!*.cpp
+!*.hpp
+
