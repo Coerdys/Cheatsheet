@@ -2,7 +2,6 @@
 
 # Directories
 !c/
-!c/*
 !cpp/
 !java/
 !python/
