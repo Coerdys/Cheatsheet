@@ -95,7 +95,6 @@ struct List* reverse(struct List* root) {
   }
 }
 
-
 int main(void) {
   struct List* root = NULL;
 
