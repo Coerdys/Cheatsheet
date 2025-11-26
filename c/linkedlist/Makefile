@@ -1,13 +1,14 @@
 SRC = src/
+INCLUDE = include/
 
-C_FILES = $(addprefix $(SRC), main.c)
+C_FILES = $(addprefix $(SRC), main.c list.c interactive.c)
 
 TARGET = app
 
 all: run
 
 compile: $(C_FILES)
-	$(CXX) $(C_FILES) -o $(TARGET)
+	$(CC) -I$(INCLUDE) $(C_FILES) -o $(TARGET)
 
 run_compile: $(C_FILES)
 	./$(TARGET)
