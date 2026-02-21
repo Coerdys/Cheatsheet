@@ -2,6 +2,8 @@
 
 # Assembly
 
+[Tutorial](https://youtube.com/playlist?list=PLKK11Ligqitg9MOX3-0tFT1Rmh3uJp7kA&si=rk7nkWYtIG3cl8ud)
+
 To find syscall table:
 ausyscall --dump
 or
