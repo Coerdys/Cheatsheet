@@ -48,18 +48,21 @@ void bt_add(Tree *tree, int val) {
   }
 }
 
-void rec_bt_print_helper(Node *node) {
-  if (node->left)
-    rec_bt_print_helper(node->left);
-  printf("%d", node->value);
-  if (node->right)
-    rec_bt_print_helper(node->right);
+void rec_bt_print_helper(Node *node, int level) {
+  if (!node) return;
+  
+  rec_bt_print_helper(node->right, level + 1);
+
+  for (int i = 0; i < level; i++) printf("  ");
+  printf("%d\n", node->value);
+
+  rec_bt_print_helper(node->left, level + 1);
 }
 
 void rec_bt_print(Tree *tree) {
   if (!tree || !tree->root)
     return;
 
-  rec_bt_print_helper(tree->root);
+  rec_bt_print_helper(tree->root, 0);
   printf("\n");
 }

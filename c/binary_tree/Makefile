@@ -13,15 +13,14 @@ compile: $(C_FILES)
 run_compile: $(C_FILES)
 	./$(TARGET)
 
-run: compile run_compile
-
 compile_debug: $(C_FILES)
 	$(CC) -I$(INCLUDE) $(C_FILES) -o $(TARGET) -g
 
 run_debug: $(C_FILES)
 	gdb $(TARGET)
 
-debug: compile_debug run_debug
+run: compile run_compile
+rund: compile_debug run_debug
 
 clean: $(TARGET)
 	rm $(TARGET)
