@@ -1,20 +1,28 @@
 #include "binary_tree.h"
+#include <stdbool.h>
 #include <stdio.h>
-#define true 1
-#define false 0
+#include <stdlib.h>
 
-Node lmao() {
+Node create_node(int value) {
   Node node;
-  node.value = 1;
+  node.value = value;
   return node;
 }
 
-void bt_init(Tree *tree) {
-  tree->root = NULL;
+Tree bt_init() {
+  Tree tree;
+  tree.root = NULL;
+  return tree;
 }
 
-void bt_add(Tree *tree, Node *node) {
-  if (tree->root == NULL) {
+void bt_add(Tree *tree, int val) {
+  if (!tree)
+    return;
+
+  Node *node = malloc(sizeof(Node));
+  node->value = val;
+
+  if (!tree->root) {
     tree->root = node;
     return;
   }
@@ -22,35 +30,36 @@ void bt_add(Tree *tree, Node *node) {
   Node *curr = tree->root;
 
   while (true) {
-    if (node->value == curr->value) {
+    if (curr->value == val)
       return;
-    } else if (node->value < curr->value) {
+    else if (val < curr->value) {
       if (curr->left == NULL) {
         curr->left = node;
         return;
-      } else {
-        curr = curr->left;
       }
+      curr = curr->left;
     } else {
       if (curr->right == NULL) {
         curr->right = node;
         return;
-      } else {
-        curr = curr->right;
       }
+      curr = curr->right;
     }
   }
 }
 
-void rec_bt_print_helper(Node * node) {
+void rec_bt_print_helper(Node *node) {
+  if (node->left)
+    rec_bt_print_helper(node->left);
   printf("%d", node->value);
-
-  if (node->left) rec_bt_print_helper(node->left);
-  if (node->right) rec_bt_print_helper(node->right);
+  if (node->right)
+    rec_bt_print_helper(node->right);
 }
 
 void rec_bt_print(Tree *tree) {
-  if (!tree || !tree->root) return;
+  if (!tree || !tree->root)
+    return;
 
   rec_bt_print_helper(tree->root);
+  printf("\n");
 }

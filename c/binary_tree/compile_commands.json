@@ -8,9 +8,9 @@
       "app",
       "src/main.c"
     ],
-    "directory": "/mnt/games/coding/LearnProgramming/c/binary_tree",
-    "file": "/mnt/games/coding/LearnProgramming/c/binary_tree/src/main.c",
-    "output": "/mnt/games/coding/LearnProgramming/c/binary_tree/app"
+    "directory": "/mnt/data/files/coding/mixed/LearnProgramming/c/binary_tree",
+    "file": "/mnt/data/files/coding/mixed/LearnProgramming/c/binary_tree/src/main.c",
+    "output": "/mnt/data/files/coding/mixed/LearnProgramming/c/binary_tree/app"
   },
   {
     "arguments": [
@@ -21,8 +21,8 @@
       "app",
       "src/binary_tree.c"
     ],
-    "directory": "/mnt/games/coding/LearnProgramming/c/binary_tree",
-    "file": "/mnt/games/coding/LearnProgramming/c/binary_tree/src/binary_tree.c",
-    "output": "/mnt/games/coding/LearnProgramming/c/binary_tree/app"
+    "directory": "/mnt/data/files/coding/mixed/LearnProgramming/c/binary_tree",
+    "file": "/mnt/data/files/coding/mixed/LearnProgramming/c/binary_tree/src/binary_tree.c",
+    "output": "/mnt/data/files/coding/mixed/LearnProgramming/c/binary_tree/app"
   }
 ]

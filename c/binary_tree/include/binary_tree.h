@@ -13,12 +13,11 @@ typedef struct Tree {
 /*
 Adds node to tree
 */
-void bt_add(Tree *tree, Node* node);
+void bt_add(Tree *tree, int val);
 
-void bt_init(Tree *tree);
+Tree bt_init();
 
 void bt_print(Tree *tree);
 
 void rec_bt_print(Tree *tree);
 
-Node lmao();
