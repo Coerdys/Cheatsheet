@@ -1,14 +1,18 @@
 #include "binary_tree.h"
 
+#include <stdio.h>
+
 int main(void) {
   Tree tree = bt_init();
-  int arr[] = {3, 5, 7, 4, 9, 0, 2, 1, 6, 8};
-  
-  for (int i = 0; i < 10; ++i) {
+  int arr[] = {7, 5, 15, 3, 13, 4, 9, 12, 0, 2, 14, 1, 11, 6, 8, 10};
+
+  for (int i = 0; i < 16; ++i) {
     bt_add(&tree, arr[i]);
   }
 
-  rec_bt_print(&tree);
+  bt_print(&tree);
+
+  printf("%b\n", bt_contains(&tree, 15));
 
   return 0;
 }
