@@ -6,14 +6,15 @@ I often forget how certain things work in different programming languages. Inste
 
 ## Languages
 
-- ### [C](c/)
+- **[C](c/)**
+  - **[Linked List](c/linked_list)**
+  - **[Binary Search Tree](c/binary_search_tree)**
+- **[C++](cpp/)**
 
-- ### [C++](cpp/)
+- **[Python](python/)**
 
-- ### [Python](python/)
+- **[Java](java/)**
 
-- ### [Java](java/)
-
-- ### [Assembly](asm/)
-  - ### [Basics](asm/basics)
-  - ### [Hello World](asm/hello_world)
+- **[Assembly](asm/)**
+  - **[Basics](asm/basics)**
+  - **[Hello World](asm/hello_world)**

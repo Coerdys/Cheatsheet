@@ -1,7 +1,7 @@
 SRC = src/
 INCLUDE = include/
 
-C_FILES = $(addprefix $(SRC), main.c binary_tree.c)
+C_FILES = $(addprefix $(SRC), main.c binary_search_tree.c)
 
 TARGET = app
 
