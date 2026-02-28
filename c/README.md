@@ -86,3 +86,29 @@ int main() {
   return 0;
 }
 ```
+
+# Unsafe functions
+
+| Banned by git | Type                | Deprecated           | Better                | Vulnerability                   | Explanation                                                                                                       |
+| ------------- | ------------------- | -------------------- | --------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| n             | String Manipulation | gets()               | fgets()               | Buffer overflow                 | Buffer overflow because it does not check input length                                                            |
+| y             | String Manipulation | strcpy()             | strncpy() / strlcpy() | Buffer overflow                 | Copies data into dest until it encounters \0 without checking length                                              |
+| y             | String Manipulation | strcat()             | strncat() / strlcat() | Buffer overflow                 | Appends data into dest until it encounters \0 without checking length                                             |
+| y             | String Manipulation | sprintf              | snprintf()            | Buffer overflow                 | Formats data into string but if string is longer than buffer -> overflow                                          |
+| n             | Input               | scanf() / fscanf()   | fgets()               | Buffer overflow                 | Will read until whitespace, regardless of buffer size                                                             |
+| n             | Standard Library    | memcpy() / memmove() |                       | Buffer overflow                 | With length n > length buf will write past buffer                                                                 |
+| n             | Conversion          | atoi() / atol()      | strtol()              | Logical error                   | Cannot distinguish between successful conversion of 0 and failed conversion (because failed conversion returns 0) |
+| n             | Conversion          | atof()               | strtod()              | Logical error                   | Cannot distinguish between successful conversion of 0 and failed conversion (because failed conversion returns 0) |
+| n             |                     | system()             | execve() / fork()     | Command injection               | Invokes /bin/sh, if user can insert command can run anything in shell                                             |
+| y             |                     | asctime()            | strftime()            | Thread-unsafe / Buffer Overflow | Uses buffer shared across all calls, thus not thread-safe. Also does not check for length                         |
+| y             |                     | strncpy              |                       |                                 |
+| y             |                     | strncat              |                       |                                 |
+| y             |                     | strtok               |                       |                                 |
+| y             |                     | strtok_r             |                       |                                 |
+| y             |                     | vprintf              |                       |                                 |
+| y             |                     | gmtime               |                       |                                 |
+| y             |                     | localtime            |                       |                                 |
+| y             |                     | ctime                |                       |                                 |
+| y             |                     | ctime_r              |                       |                                 |
+| y             |                     | asctime_r            |                       |                                 |
+| y             |                     | mktemp               |                       |                                 |
