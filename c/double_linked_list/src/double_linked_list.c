@@ -14,6 +14,20 @@ void check_list(List *list) {
 
 // public functions
 
+List *dll_create(void) {
+  List *list = malloc(sizeof(List));
+
+  if (!list) {
+    perror("Could not malloc for list\n");
+    exit(1);
+  }
+
+  list->size = 0;
+  list->root = NULL;
+
+  return list;
+}
+
 void dll_add(List *list, int value) {
   check_list(list);
 
@@ -39,6 +53,7 @@ void dll_add(List *list, int value) {
     cur = cur->nxt;
   }
 
+  ++list->size;
   cur->nxt = node;
   cur->nxt->prv = cur;
 }

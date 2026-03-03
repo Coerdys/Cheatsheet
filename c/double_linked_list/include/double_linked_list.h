@@ -11,6 +11,7 @@ typedef struct List {
   int size;
 } List;
 
+List* dll_create(void);
 void dll_add(List *list, int value);
 void dll_remove(List *list, int value);
 void dll_clear(List *list);
