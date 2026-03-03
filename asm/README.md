@@ -2,7 +2,8 @@
 
 # Description
 
-[Tutorial](https://youtube.com/playlist?list=PLKK11Ligqitg9MOX3-0tFT1Rmh3uJp7kA&si=rk7nkWYtIG3cl8ud)
+- [󰗃 Tutorial](https://youtube.com/playlist?list=PLKK11Ligqitg9MOX3-0tFT1Rmh3uJp7kA&si=rk7nkWYtIG3cl8ud)
+- [󰊤 Tutorial](https://github.com/luamfb/intro_x86-64/blob/master/0_basic.asm)
 
 ## Syscall table
 
@@ -57,39 +58,34 @@ man 2 <syscall_name>
 |                     |          |            |              | fs    |        |        |
 |                     |          |            |              | gs    |        |        |
 
-legend: l = lower, h = higher
+legend:
+
+- l = lower, h = higher
+- b = byte (8b=1B), w = word (16b=2B), d = doule word (32b = 4B)
 
 # Data types
 
-| Name        | In register | Type  | Bits | Bytes | Defining |
-| ----------- | ----------- | ----- | ---- | ----- | -------- |
-| Byte        | b           | int8  | 8    | 1     | .byte    |
-| Word        | w           | int16 | 16   | 2     | .short   |
-| Double Word | d           | int32 | 32   | 4     | .int     |
-| Quad Word   |             | int64 | 64   | 8     | .quad    |
-| Single      |             | float | 32   | 10    | real4    |
-| Double      |             | float | 64   | 8     | real8    |
-| Extended    |             | float | 128  | 16    | real10   |
+```asm
+section .data ; global variables
+        byte_1 db 0x12               ; db = declare byte (1 byte)
+        byte_2 dw 0x1234             ; dw = declare word (2 bytes)
+        byte_4 dd 0x12345678         ; dd = declare doubleword (4 bytes)
+        byte_8 dq 0x1234567812345678 ; dq = declare quadword (8 bytes)
 
-legend: b = byte (8b), w = word (16b), d = double word (32b), q = quad word (64b), l = lower, h = higher
+section .rodata ; gloal constants
+        string: db "Hello, World!", 0xa, 0 ; array of bytes, 0xa=newline, 0=nullbyte
 
-# Segments
+section .bss ; space reserved at program startup
+section .text ; CPU instructions
+global _start ; exports _start for linker to find
+_start: ; label stores addresses, _start is special program entry point
+        mov rax, 0 ; mov DEST, SOURCE
+        inc rax
+        dec rax
+        add rax, rbx ; rax += rbx
+        sub rax, rbx ; rax -= rbx
 
-| Name                    | In asm  | Explanation                                                  |
-| ----------------------- | ------- | ------------------------------------------------------------ |
-| Code                    | .text   | Executable machine instructions (Read-Only/Exec)             |
-| Data                    | .data   | Global/Static variables with initial values (Read/Write)     |
-| Read-only data          | .rodata | Constants, strings, and look-up tables (Read-Only)           |
-| Block started by symbol | .bss    | Reserved space for variables; automatically zeroed by the OS |
-
-# Instructions
-
-# Syscalls
-
-https://blog.rchapman.org/posts/Linux_System_Call_Table_for_x86_64/
-
-# File Descriptors
-
-0 stdin
-1 stdout
-2 stderr
+        mov rax, 60 ;
+        mov rdi, 0
+        syscall
+```
